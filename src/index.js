@@ -1,4 +1,3 @@
-import Promise from 'bluebird';
 import sizeOf from 'image-size';
 import Canvas from 'canvas';
 import { computeRowLayout } from './layouts/justified';
@@ -63,7 +62,6 @@ function getPositions(rows) {
   });
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export async function createCollage(sources, maxWidth, mimeType = 'image/png') {
   const photos = await Promise.all(sources.map(getPhoto));
   const sizes = await Promise.all(photos.map(sizeOf));
